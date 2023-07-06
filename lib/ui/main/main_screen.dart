@@ -30,9 +30,10 @@ class MainScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => DetailScreen()),
-                    );
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailScreen(),
+                        ));
                   },
                   child: Text('찾기'),
                 ),

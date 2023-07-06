@@ -22,12 +22,12 @@ Shelter _$ShelterFromJson(Map<String, dynamic> json) {
 mixin _$Shelter {
   String get r_area_nm => throw _privateConstructorUsedError;
   String get r_detl_add => throw _privateConstructorUsedError;
-  num get lo => throw _privateConstructorUsedError;
-  num get la => throw _privateConstructorUsedError;
+  double get lo => throw _privateConstructorUsedError;
+  double get la => throw _privateConstructorUsedError;
   num get use_prnb => throw _privateConstructorUsedError;
   num get cler2_cnt => throw _privateConstructorUsedError;
   num get cler1_cnt => throw _privateConstructorUsedError;
-  dynamic get required => throw _privateConstructorUsedError;
+  num? get km => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,12 +42,12 @@ abstract class $ShelterCopyWith<$Res> {
   $Res call(
       {String r_area_nm,
       String r_detl_add,
-      num lo,
-      num la,
+      double lo,
+      double la,
       num use_prnb,
       num cler2_cnt,
       num cler1_cnt,
-      dynamic required});
+      num? km});
 }
 
 /// @nodoc
@@ -70,7 +70,7 @@ class _$ShelterCopyWithImpl<$Res, $Val extends Shelter>
     Object? use_prnb = null,
     Object? cler2_cnt = null,
     Object? cler1_cnt = null,
-    Object? required = freezed,
+    Object? km = freezed,
   }) {
     return _then(_value.copyWith(
       r_area_nm: null == r_area_nm
@@ -84,11 +84,11 @@ class _$ShelterCopyWithImpl<$Res, $Val extends Shelter>
       lo: null == lo
           ? _value.lo
           : lo // ignore: cast_nullable_to_non_nullable
-              as num,
+              as double,
       la: null == la
           ? _value.la
           : la // ignore: cast_nullable_to_non_nullable
-              as num,
+              as double,
       use_prnb: null == use_prnb
           ? _value.use_prnb
           : use_prnb // ignore: cast_nullable_to_non_nullable
@@ -101,10 +101,10 @@ class _$ShelterCopyWithImpl<$Res, $Val extends Shelter>
           ? _value.cler1_cnt
           : cler1_cnt // ignore: cast_nullable_to_non_nullable
               as num,
-      required: freezed == required
-          ? _value.required
-          : required // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+      km: freezed == km
+          ? _value.km
+          : km // ignore: cast_nullable_to_non_nullable
+              as num?,
     ) as $Val);
   }
 }
@@ -119,12 +119,12 @@ abstract class _$$_ShelterCopyWith<$Res> implements $ShelterCopyWith<$Res> {
   $Res call(
       {String r_area_nm,
       String r_detl_add,
-      num lo,
-      num la,
+      double lo,
+      double la,
       num use_prnb,
       num cler2_cnt,
       num cler1_cnt,
-      dynamic required});
+      num? km});
 }
 
 /// @nodoc
@@ -144,7 +144,7 @@ class __$$_ShelterCopyWithImpl<$Res>
     Object? use_prnb = null,
     Object? cler2_cnt = null,
     Object? cler1_cnt = null,
-    Object? required = freezed,
+    Object? km = freezed,
   }) {
     return _then(_$_Shelter(
       r_area_nm: null == r_area_nm
@@ -158,11 +158,11 @@ class __$$_ShelterCopyWithImpl<$Res>
       lo: null == lo
           ? _value.lo
           : lo // ignore: cast_nullable_to_non_nullable
-              as num,
+              as double,
       la: null == la
           ? _value.la
           : la // ignore: cast_nullable_to_non_nullable
-              as num,
+              as double,
       use_prnb: null == use_prnb
           ? _value.use_prnb
           : use_prnb // ignore: cast_nullable_to_non_nullable
@@ -175,7 +175,10 @@ class __$$_ShelterCopyWithImpl<$Res>
           ? _value.cler1_cnt
           : cler1_cnt // ignore: cast_nullable_to_non_nullable
               as num,
-      required: freezed == required ? _value.required! : required,
+      km: freezed == km
+          ? _value.km
+          : km // ignore: cast_nullable_to_non_nullable
+              as num?,
     ));
   }
 }
@@ -191,7 +194,7 @@ class _$_Shelter with DiagnosticableTreeMixin implements _Shelter {
       required this.use_prnb,
       required this.cler2_cnt,
       required this.cler1_cnt,
-      this.required});
+      this.km});
 
   factory _$_Shelter.fromJson(Map<String, dynamic> json) =>
       _$$_ShelterFromJson(json);
@@ -201,9 +204,9 @@ class _$_Shelter with DiagnosticableTreeMixin implements _Shelter {
   @override
   final String r_detl_add;
   @override
-  final num lo;
+  final double lo;
   @override
-  final num la;
+  final double la;
   @override
   final num use_prnb;
   @override
@@ -211,11 +214,11 @@ class _$_Shelter with DiagnosticableTreeMixin implements _Shelter {
   @override
   final num cler1_cnt;
   @override
-  final dynamic required;
+  final num? km;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Shelter(r_area_nm: $r_area_nm, r_detl_add: $r_detl_add, lo: $lo, la: $la, use_prnb: $use_prnb, cler2_cnt: $cler2_cnt, cler1_cnt: $cler1_cnt, required: $required)';
+    return 'Shelter(r_area_nm: $r_area_nm, r_detl_add: $r_detl_add, lo: $lo, la: $la, use_prnb: $use_prnb, cler2_cnt: $cler2_cnt, cler1_cnt: $cler1_cnt, km: $km)';
   }
 
   @override
@@ -230,7 +233,7 @@ class _$_Shelter with DiagnosticableTreeMixin implements _Shelter {
       ..add(DiagnosticsProperty('use_prnb', use_prnb))
       ..add(DiagnosticsProperty('cler2_cnt', cler2_cnt))
       ..add(DiagnosticsProperty('cler1_cnt', cler1_cnt))
-      ..add(DiagnosticsProperty('required', required));
+      ..add(DiagnosticsProperty('km', km));
   }
 
   @override
@@ -250,21 +253,13 @@ class _$_Shelter with DiagnosticableTreeMixin implements _Shelter {
                 other.cler2_cnt == cler2_cnt) &&
             (identical(other.cler1_cnt, cler1_cnt) ||
                 other.cler1_cnt == cler1_cnt) &&
-            const DeepCollectionEquality().equals(other.required, required));
+            (identical(other.km, km) || other.km == km));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      r_area_nm,
-      r_detl_add,
-      lo,
-      la,
-      use_prnb,
-      cler2_cnt,
-      cler1_cnt,
-      const DeepCollectionEquality().hash(required));
+  int get hashCode => Object.hash(runtimeType, r_area_nm, r_detl_add, lo, la,
+      use_prnb, cler2_cnt, cler1_cnt, km);
 
   @JsonKey(ignore: true)
   @override
@@ -284,12 +279,12 @@ abstract class _Shelter implements Shelter {
   const factory _Shelter(
       {required final String r_area_nm,
       required final String r_detl_add,
-      required final num lo,
-      required final num la,
+      required final double lo,
+      required final double la,
       required final num use_prnb,
       required final num cler2_cnt,
       required final num cler1_cnt,
-      final dynamic required}) = _$_Shelter;
+      final num? km}) = _$_Shelter;
 
   factory _Shelter.fromJson(Map<String, dynamic> json) = _$_Shelter.fromJson;
 
@@ -298,9 +293,9 @@ abstract class _Shelter implements Shelter {
   @override
   String get r_detl_add;
   @override
-  num get lo;
+  double get lo;
   @override
-  num get la;
+  double get la;
   @override
   num get use_prnb;
   @override
@@ -308,7 +303,7 @@ abstract class _Shelter implements Shelter {
   @override
   num get cler1_cnt;
   @override
-  dynamic get required;
+  num? get km;
   @override
   @JsonKey(ignore: true)
   _$$_ShelterCopyWith<_$_Shelter> get copyWith =>

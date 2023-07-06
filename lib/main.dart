@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:seoulheatshelter/ui/detail/detail_view_model.dart';
 
 import 'ui/main/main_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (_) => DetailViewModel(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
