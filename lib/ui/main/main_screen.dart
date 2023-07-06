@@ -9,7 +9,7 @@ class MainScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('무더위 대피소 찾기'),
+          title: const Text('무더위 대피소 찾기'),
           centerTitle: true,
         ),
         body: Center(
@@ -18,13 +18,15 @@ class MainScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.network(
-                    'https://cdn-icons-png.flaticon.com/128/5892/5892536.png'),
-                SizedBox(
+                Image.asset('assets/sun1.png'),
+                const SizedBox(
                   height: 16,
                 ),
-                Text('근처 무더위 대피소 찾기'),
-                SizedBox(
+                const Text(
+                  '근처 무더위 대피소 찾기',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+                const SizedBox(
                   height: 16,
                 ),
                 ElevatedButton(
@@ -35,7 +37,7 @@ class MainScreen extends StatelessWidget {
                           builder: (context) => DetailScreen(),
                         ));
                   },
-                  child: Text('찾기'),
+                  child: const Text('찾기'),
                 ),
               ],
             ),
