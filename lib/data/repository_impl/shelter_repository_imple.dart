@@ -5,6 +5,7 @@ import 'package:seoulheatshelter/domain/model/shelter.dart';
 import 'package:seoulheatshelter/domain/repositoy/reposity.dart';
 
 class ShelterRepositoryImpl implements ShelterRepository {
+  @override
   Future<List<Shelter>> fetch(double latitude, double longitude) async {
     List<Shelter> shelters = [];
     const Distance distance = Distance();
