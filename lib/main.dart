@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:seoulheatshelter/ui/detail/detail_view_model.dart';
+import 'package:seoulheatshelter/presentation/main/main_screen.dart';
 
-import 'ui/main/main_screen.dart';
+import 'presentation/detail/detail_view_model.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(

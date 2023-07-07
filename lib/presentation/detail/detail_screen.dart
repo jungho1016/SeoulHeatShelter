@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:seoulheatshelter/domain/model/shelter.dart';
-import 'package:seoulheatshelter/ui/detail/detail_view_model.dart';
-import 'package:seoulheatshelter/ui/detail/detail_widget.dart';
+import 'package:seoulheatshelter/presentation/detail/detail_view_model.dart';
+import 'package:seoulheatshelter/presentation/detail/detail_widget.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
 class DetailScreen extends StatefulWidget {

@@ -2,8 +2,9 @@ import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:latlong2/latlong.dart';
 import 'package:seoulheatshelter/domain/model/shelter.dart';
+import 'package:seoulheatshelter/domain/repositoy/reposity.dart';
 
-class ShelterRepository {
+class ShelterRepositoryImpl implements ShelterRepository {
   Future<List<Shelter>> fetch(double latitude, double longitude) async {
     List<Shelter> shelters = [];
     const Distance distance = Distance();
