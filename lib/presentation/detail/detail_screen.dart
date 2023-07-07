@@ -6,21 +6,10 @@ import 'package:seoulheatshelter/presentation/detail/detail_widget.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
-class DetailScreen extends StatefulWidget {
+class DetailScreen extends StatelessWidget {
   DetailScreen({
     Key? key,
   }) : super(key: key);
-
-  @override
-  State<DetailScreen> createState() => _DetailScreenState();
-}
-
-class _DetailScreenState extends State<DetailScreen> {
-  @override
-  void initState() {
-    super.initState();
-    Future.microtask(() => context.read<DetailViewModel>().fetch());
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +20,12 @@ class _DetailScreenState extends State<DetailScreen> {
           title: const Text('무더위 대피소 목록'),
           centerTitle: true,
         ),
-        body: viewModel.isLoading == true
+        body: viewModel.state.isLoading == true
             ? const Loading()
             : ListView.builder(
-                itemCount: viewModel.shelters.length,
+                itemCount: viewModel.state.shelters.length,
                 itemBuilder: (BuildContext context, int index) {
-                  final shelter = viewModel.shelters[index];
+                  final shelter = viewModel.state.shelters[index];
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: InkWell(

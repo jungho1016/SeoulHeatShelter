@@ -11,6 +11,10 @@ class DetailViewModel with ChangeNotifier {
   final LocationRepository _locationRepository = LocationRepository();
   final ShelterRepositoryImpl _shelterRepository = ShelterRepositoryImpl();
 
+  DetailViewModel() {
+    fetch();
+  }
+
   Future<void> fetch() async {
     _state = state.copyWith(isLoading: true);
     notifyListeners();
