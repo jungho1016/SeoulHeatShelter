@@ -41,7 +41,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: InkWell(
-                      onTap: () => _launchUrl(shelter.la, shelter.lo),
+                      onTap: () => _launchUrl(shelter.lat, shelter.lot),
                       child: Card(
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -53,14 +53,14 @@ class _DetailScreenState extends State<DetailScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      shelter.r_area_nm,
+                                      shelter.name,
                                       style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 16,
                                       ),
                                     ),
                                     const SizedBox(height: 4),
-                                    Text(shelter.r_detl_add),
+                                    Text(shelter.address),
                                     const SizedBox(height: 4),
                                     Text('${shelter.km}km'),
                                   ],
@@ -98,21 +98,21 @@ class _DetailScreenState extends State<DetailScreen> {
                                           MainAxisAlignment.spaceAround,
                                       children: [
                                         Text(
-                                          shelter.cler1_cnt.toString(),
+                                          shelter.fan.toString(),
                                           style: const TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 14,
                                           ),
                                         ),
                                         Text(
-                                          shelter.cler2_cnt.toString(),
+                                          shelter.air_conditioner.toString(),
                                           style: const TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 14,
                                           ),
                                         ),
                                         Text(
-                                          shelter.use_prnb.toString(),
+                                          shelter.use_available.toString(),
                                           style: const TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 14,

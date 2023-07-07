@@ -16,7 +16,7 @@ class ShelterRepository {
         final shelter = Shelter.fromJson(e);
         final km = distance.as(
           LengthUnit.Kilometer,
-          LatLng(shelter.la, shelter.lo),
+          LatLng(shelter.lat, shelter.lot),
           LatLng(latitude, longitude),
         );
         final newShelter = shelter.copyWith(km: km);
