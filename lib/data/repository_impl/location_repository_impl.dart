@@ -1,12 +1,14 @@
 import 'package:geolocator/geolocator.dart';
+import 'package:seoulheatshelter/domain/repositoy/location_reposity.dart';
 
-class LocationRepository {
+class LocationRepositoryImple implements LocationRepository {
   final Geolocator _geolocator = Geolocator();
 
   /// Determine the current position of the device.
   ///
   /// When the location services are not enabled or permissions
   /// are denied the `Future` will return an error.
+  @override
   Future<Position> determinePosition() async {
     bool serviceEnabled;
     LocationPermission permission;
@@ -44,6 +46,7 @@ class LocationRepository {
     return await Geolocator.getCurrentPosition();
   }
 
+  @override
   Future<Position> getCurrenLocation() async {
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
