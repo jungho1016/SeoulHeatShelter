@@ -2,7 +2,8 @@ import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:latlong2/latlong.dart';
 import 'package:seoulheatshelter/domain/model/shelter.dart';
-import 'package:seoulheatshelter/domain/repositoy/reposity.dart';
+
+import 'package:seoulheatshelter/domain/repositoy/shelter_repository.dart';
 
 class ShelterRepositoryImpl implements ShelterRepository {
   @override
