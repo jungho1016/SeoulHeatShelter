@@ -67,7 +67,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                 ),
                               ),
                               const SizedBox(width: 16),
-                              Container(
+                              SizedBox(
                                 width: 150,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.end,
