@@ -19,6 +19,7 @@ class Shelter with _$Shelter {
     @MyJsonKey(name: 'cler2_cnt') required num air_conditioner,
     @MyJsonKey(name: 'cler1_cnt') required num fan,
     num? km,
+    num? m,
   }) = _Shelter;
 
   factory Shelter.fromJson(Map<String, Object?> json) =>

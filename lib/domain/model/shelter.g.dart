@@ -15,6 +15,7 @@ _$_Shelter _$$_ShelterFromJson(Map<String, dynamic> json) => _$_Shelter(
       air_conditioner: json['cler2_cnt'] as num,
       fan: json['cler1_cnt'] as num,
       km: json['km'] as num?,
+      m: json['m'] as num?,
     );
 
 Map<String, dynamic> _$$_ShelterToJson(_$_Shelter instance) =>
@@ -27,4 +28,5 @@ Map<String, dynamic> _$$_ShelterToJson(_$_Shelter instance) =>
       'cler2_cnt': instance.air_conditioner,
       'cler1_cnt': instance.fan,
       'km': instance.km,
+      'm': instance.m,
     };

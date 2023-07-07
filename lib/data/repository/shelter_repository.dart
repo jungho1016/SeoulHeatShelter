@@ -14,17 +14,23 @@ class ShelterRepository {
     jsonResult.forEach(
       (e) {
         final shelter = Shelter.fromJson(e);
-        final km = distance.as(
-          LengthUnit.Kilometer,
+        final meter = distance(
           LatLng(shelter.lat, shelter.lot),
           LatLng(latitude, longitude),
         );
-        final newShelter = shelter.copyWith(km: km);
+        final newShelter = shelter.copyWith(m: meter);
         shelters.add(newShelter);
+        // final km = distance.as(
+        //   LengthUnit.Kilometer,
+        //   LatLng(shelter.lat, shelter.lot),
+        //   LatLng(latitude, longitude),
+        // );
+        // final newShelter = shelter.copyWith(km: km);
+        // shelters.add(newShelter);
       },
     );
 
-    shelters.sort((a, b) => a.km!.compareTo(b.km!));
+    shelters.sort((a, b) => a.m!.compareTo(b.m!));
     return shelters.take(5).toList();
   }
 }

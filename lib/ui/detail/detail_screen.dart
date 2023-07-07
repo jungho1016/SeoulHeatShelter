@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:seoulheatshelter/domain/model/shelter.dart';
 import 'package:seoulheatshelter/ui/detail/detail_view_model.dart';
@@ -6,8 +7,6 @@ import 'package:seoulheatshelter/ui/detail/detail_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DetailScreen extends StatefulWidget {
-  late Shelter shelter;
-
   DetailScreen({
     Key? key,
   }) : super(key: key);
@@ -53,7 +52,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      shelter.name,
+                                      '${index + 1}. ${shelter.name}',
                                       style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 16,
@@ -62,7 +61,8 @@ class _DetailScreenState extends State<DetailScreen> {
                                     const SizedBox(height: 4),
                                     Text(shelter.address),
                                     const SizedBox(height: 4),
-                                    Text('${shelter.km}km'),
+                                    Text(
+                                        '${NumberFormat('#,###').format(shelter.m!.round())}m'),
                                   ],
                                 ),
                               ),

@@ -35,6 +35,7 @@ mixin _$Shelter {
   @MyJsonKey(name: 'cler1_cnt')
   num get fan => throw _privateConstructorUsedError;
   num? get km => throw _privateConstructorUsedError;
+  num? get m => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -54,7 +55,8 @@ abstract class $ShelterCopyWith<$Res> {
       @MyJsonKey(name: 'use_prnb') num use_available,
       @MyJsonKey(name: 'cler2_cnt') num air_conditioner,
       @MyJsonKey(name: 'cler1_cnt') num fan,
-      num? km});
+      num? km,
+      num? m});
 }
 
 /// @nodoc
@@ -78,6 +80,7 @@ class _$ShelterCopyWithImpl<$Res, $Val extends Shelter>
     Object? air_conditioner = null,
     Object? fan = null,
     Object? km = freezed,
+    Object? m = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -112,6 +115,10 @@ class _$ShelterCopyWithImpl<$Res, $Val extends Shelter>
           ? _value.km
           : km // ignore: cast_nullable_to_non_nullable
               as num?,
+      m: freezed == m
+          ? _value.m
+          : m // ignore: cast_nullable_to_non_nullable
+              as num?,
     ) as $Val);
   }
 }
@@ -131,7 +138,8 @@ abstract class _$$_ShelterCopyWith<$Res> implements $ShelterCopyWith<$Res> {
       @MyJsonKey(name: 'use_prnb') num use_available,
       @MyJsonKey(name: 'cler2_cnt') num air_conditioner,
       @MyJsonKey(name: 'cler1_cnt') num fan,
-      num? km});
+      num? km,
+      num? m});
 }
 
 /// @nodoc
@@ -152,6 +160,7 @@ class __$$_ShelterCopyWithImpl<$Res>
     Object? air_conditioner = null,
     Object? fan = null,
     Object? km = freezed,
+    Object? m = freezed,
   }) {
     return _then(_$_Shelter(
       name: null == name
@@ -186,6 +195,10 @@ class __$$_ShelterCopyWithImpl<$Res>
           ? _value.km
           : km // ignore: cast_nullable_to_non_nullable
               as num?,
+      m: freezed == m
+          ? _value.m
+          : m // ignore: cast_nullable_to_non_nullable
+              as num?,
     ));
   }
 }
@@ -201,7 +214,8 @@ class _$_Shelter with DiagnosticableTreeMixin implements _Shelter {
       @MyJsonKey(name: 'use_prnb') required this.use_available,
       @MyJsonKey(name: 'cler2_cnt') required this.air_conditioner,
       @MyJsonKey(name: 'cler1_cnt') required this.fan,
-      this.km});
+      this.km,
+      this.m});
 
   factory _$_Shelter.fromJson(Map<String, dynamic> json) =>
       _$$_ShelterFromJson(json);
@@ -229,10 +243,12 @@ class _$_Shelter with DiagnosticableTreeMixin implements _Shelter {
   final num fan;
   @override
   final num? km;
+  @override
+  final num? m;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Shelter(name: $name, address: $address, lot: $lot, lat: $lat, use_available: $use_available, air_conditioner: $air_conditioner, fan: $fan, km: $km)';
+    return 'Shelter(name: $name, address: $address, lot: $lot, lat: $lat, use_available: $use_available, air_conditioner: $air_conditioner, fan: $fan, km: $km, m: $m)';
   }
 
   @override
@@ -247,7 +263,8 @@ class _$_Shelter with DiagnosticableTreeMixin implements _Shelter {
       ..add(DiagnosticsProperty('use_available', use_available))
       ..add(DiagnosticsProperty('air_conditioner', air_conditioner))
       ..add(DiagnosticsProperty('fan', fan))
-      ..add(DiagnosticsProperty('km', km));
+      ..add(DiagnosticsProperty('km', km))
+      ..add(DiagnosticsProperty('m', m));
   }
 
   @override
@@ -264,13 +281,14 @@ class _$_Shelter with DiagnosticableTreeMixin implements _Shelter {
             (identical(other.air_conditioner, air_conditioner) ||
                 other.air_conditioner == air_conditioner) &&
             (identical(other.fan, fan) || other.fan == fan) &&
-            (identical(other.km, km) || other.km == km));
+            (identical(other.km, km) || other.km == km) &&
+            (identical(other.m, m) || other.m == m));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, name, address, lot, lat,
-      use_available, air_conditioner, fan, km);
+      use_available, air_conditioner, fan, km, m);
 
   @JsonKey(ignore: true)
   @override
@@ -295,7 +313,8 @@ abstract class _Shelter implements Shelter {
       @MyJsonKey(name: 'use_prnb') required final num use_available,
       @MyJsonKey(name: 'cler2_cnt') required final num air_conditioner,
       @MyJsonKey(name: 'cler1_cnt') required final num fan,
-      final num? km}) = _$_Shelter;
+      final num? km,
+      final num? m}) = _$_Shelter;
 
   factory _Shelter.fromJson(Map<String, dynamic> json) = _$_Shelter.fromJson;
 
@@ -322,6 +341,8 @@ abstract class _Shelter implements Shelter {
   num get fan;
   @override
   num? get km;
+  @override
+  num? get m;
   @override
   @JsonKey(ignore: true)
   _$$_ShelterCopyWith<_$_Shelter> get copyWith =>
