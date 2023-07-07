@@ -43,11 +43,11 @@ class _DetailScreenState extends State<DetailScreen> {
                       onTap: () => _launchUrl(shelter.lat, shelter.lot),
                       child: Card(
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Expanded(
+                              Flexible(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -68,59 +68,84 @@ class _DetailScreenState extends State<DetailScreen> {
                               ),
                               const SizedBox(width: 16),
                               SizedBox(
-                                width: 150,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Image.asset(
-                                          'assets/fan.png',
-                                          scale: 5.0,
-                                        ),
-                                        Image.asset(
-                                          'assets/airconditioner.png',
-                                          scale: 5.0,
-                                        ),
-                                        const Text(
-                                          '이용 가능 인원',
-                                          style: TextStyle(
-                                            fontSize: 12,
+                                width: 130,
+                                child: Flexible(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.all(4.0),
+                                            child: Column(
+                                              children: [
+                                                Image.asset(
+                                                  'assets/fan.png',
+                                                  scale: 5.0,
+                                                ),
+                                                Text(
+                                                  shelter.fan.toString(),
+                                                  style: const TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 14,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                    const SizedBox(height: 8),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        Text(
-                                          shelter.fan.toString(),
-                                          style: const TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 14,
+                                          Padding(
+                                            padding: const EdgeInsets.all(4.0),
+                                            child: Column(
+                                              children: [
+                                                Image.asset(
+                                                  'assets/airconditioner.png',
+                                                  scale: 5.0,
+                                                ),
+                                                Text(
+                                                  shelter.air_conditioner
+                                                      .toString(),
+                                                  style: const TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 14,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                        Text(
-                                          shelter.air_conditioner.toString(),
-                                          style: const TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 14,
+                                          Padding(
+                                            padding: const EdgeInsets.all(4.0),
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceEvenly,
+                                              children: [
+                                                const Text(
+                                                  '이용 가능',
+                                                  style: TextStyle(
+                                                      fontSize: 13,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                const SizedBox(
+                                                  height: 4,
+                                                ),
+                                                Text(
+                                                  '${shelter.use_available.toString()}명',
+                                                  style: const TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 14,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                        Text(
-                                          shelter.use_available.toString(),
-                                          style: const TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                                        ],
+                                      ),
+                                      const SizedBox(height: 8),
+                                      // Additional Rows or Columns if needed
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],
