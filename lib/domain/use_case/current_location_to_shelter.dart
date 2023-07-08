@@ -10,7 +10,7 @@ class CurrentLocationTShelter {
 
   Future<List<Shelter>> execute() async {
     await _locationRepository.determinePosition();
-    Position position = await _locationRepository.getCurrenLocation();
+    Position position = await _locationRepository.getCurrentLocation();
 
     List<Shelter> shelters = await _shelterRepository.fetch(
       position.latitude,
