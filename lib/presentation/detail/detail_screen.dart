@@ -17,8 +17,14 @@ class DetailScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('무더위 대피소 목록'),
+          title: const Text(
+            '무더위 대피소 찾기',
+            style: TextStyle(fontSize: 24),
+          ),
           centerTitle: true,
+          backgroundColor: Colors.transparent,
+          foregroundColor: Colors.black,
+          elevation: 0,
         ),
         body: viewModel.state.isLoading == true
             ? const Loading()
@@ -26,11 +32,17 @@ class DetailScreen extends StatelessWidget {
                 itemCount: viewModel.state.shelters.length,
                 itemBuilder: (BuildContext context, int index) {
                   final shelter = viewModel.state.shelters[index];
+                  // Example content background colors
+
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: InkWell(
                       onTap: () => _launchUrl(shelter.lat, shelter.lot),
                       child: Card(
+                        elevation: 4,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: Row(
@@ -48,10 +60,22 @@ class DetailScreen extends StatelessWidget {
                                       ),
                                     ),
                                     const SizedBox(height: 4),
-                                    Text(shelter.address),
+                                    Text(
+                                      shelter.address,
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.grey[600],
+                                      ),
+                                    ),
                                     const SizedBox(height: 4),
                                     Text(
-                                        '${NumberFormat('#,###').format(shelter.m!.round())}m'),
+                                      '${NumberFormat('#,###').format(shelter.m!.round())}m',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14,
+                                        color: Colors.blue[700],
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -108,8 +132,9 @@ class DetailScreen extends StatelessWidget {
                                             const Text(
                                               '이용 가능',
                                               style: TextStyle(
-                                                  fontSize: 13,
-                                                  fontWeight: FontWeight.bold),
+                                                fontSize: 13,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                             const SizedBox(
                                               height: 4,

@@ -9,8 +9,14 @@ class MainScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('무더위 대피소 찾기'),
+          title: const Text(
+            '무더위 대피소 찾기',
+            style: TextStyle(fontSize: 24),
+          ),
           centerTitle: true,
+          backgroundColor: Colors.transparent,
+          foregroundColor: Colors.black,
+          elevation: 0,
         ),
         body: Center(
           child: Padding(
@@ -19,25 +25,34 @@ class MainScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset('assets/sun1.png'),
-                const SizedBox(
-                  height: 16,
-                ),
+                const SizedBox(height: 16),
                 const Text(
                   '근처 무더위 대피소 찾기',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
-                const SizedBox(
-                  height: 16,
-                ),
+                const SizedBox(height: 16),
                 ElevatedButton(
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.blue[50]!),
+                  ),
                   onPressed: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => DetailScreen(),
-                        ));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailScreen(),
+                      ),
+                    );
                   },
-                  child: const Text('찾기'),
+                  child: Text(
+                    '찾기',
+                    style: TextStyle(color: Colors.blue),
+                  ),
                 ),
               ],
             ),
