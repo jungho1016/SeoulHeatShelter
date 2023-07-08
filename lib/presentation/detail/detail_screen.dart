@@ -7,7 +7,7 @@ import 'package:seoulheatshelter/presentation/detail/detail_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DetailScreen extends StatelessWidget {
-  DetailScreen({
+  const DetailScreen({
     Key? key,
   }) : super(key: key);
 
@@ -188,10 +188,10 @@ class DetailScreen extends StatelessWidget {
   }
 
   Future<void> _launchUrl(double lat, double lng) async {
-    final Uri _url =
+    final Uri url =
         Uri.parse('https://www.google.com/maps/search/?api=1&query=$lat,$lng');
-    if (!await launchUrl(_url)) {
-      throw Exception('Could not launch $_url');
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch $url');
     }
   }
 }

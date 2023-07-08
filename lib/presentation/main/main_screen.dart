@@ -1,37 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:seoulheatshelter/presentation/detail/detail_screen.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
-
-  // Future<void> _requestPermission(BuildContext context) async {
-  //   final permission = await Geolocator.checkPermission();
-  //   if (permission == LocationPermission.denied) {
-  //     final showDialogResult = await showDialog<bool>(
-  //       context: context,
-  //       builder: (BuildContext context) {
-  //         return AlertDialog(
-  //           title: const Text('위치 권한 요청'),
-  //           content: const Text('앱에서 위치 정보를 사용하려면 위치 권한이 필요합니다.'),
-  //           actions: [
-  //             TextButton(
-  //               onPressed: () => Navigator.of(context).pop(true),
-  //               child: const Text('허용'),
-  //             ),
-  //             TextButton(
-  //               onPressed: () => Navigator.of(context).pop(false),
-  //               child: const Text('거부'),
-  //             ),
-  //           ],
-  //         );
-  //       },
-  //     );
-  //     if (showDialogResult == true) {
-  //       await Geolocator.requestPermission();
-  //     }
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +45,7 @@ class MainScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => DetailScreen(),
+                        builder: (context) => const DetailScreen(),
                       ),
                     );
                   },
