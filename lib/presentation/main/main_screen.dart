@@ -49,7 +49,7 @@ class MainScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Text(
+                  child: const Text(
                     '찾기',
                     style: TextStyle(color: Colors.blue),
                   ),
