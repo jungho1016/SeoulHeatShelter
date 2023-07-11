@@ -45,6 +45,7 @@ dependencies:
   font_awesome_flutter: ^10.5.0
   lottie: ^2.4.0
   intl: ^0.18.1
+  permission_handler: ^10.4.2
 
 dev_dependencies:
   flutter_test:
