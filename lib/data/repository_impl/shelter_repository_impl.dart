@@ -23,17 +23,11 @@ class ShelterRepositoryImpl implements ShelterRepository {
         );
         final newShelter = shelter.copyWith(m: meter);
         shelters.add(newShelter);
-        // final km = distance.as(
-        //   LengthUnit.Kilometer,
-        //   LatLng(shelter.lat, shelter.lot),
-        //   LatLng(latitude, longitude),
-        // );
-        // final newShelter = shelter.copyWith(km: km);
-        // shelters.add(newShelter);
       },
     );
 
     shelters.sort((a, b) => a.m!.compareTo(b.m!));
+
     return shelters.take(5).toList();
   }
 }
