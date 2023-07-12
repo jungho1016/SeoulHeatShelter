@@ -1,5 +1,4 @@
 import 'package:geolocator/geolocator.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:seoulheatshelter/domain/repositoy/location_reposity.dart';
 
 class LocationRepositoryImple implements LocationRepository {
@@ -19,40 +18,21 @@ class LocationRepositoryImple implements LocationRepository {
     LocationPermission permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.whileInUse) {
       permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        // 권한이 거부된 경우, 모달 창으로 알림을 표시합니다.
-        return Future.error('위치 권한이 거부되었습니다.');
-      }
-
-      if (permission == LocationPermission.deniedForever) {
-        // 권한이 영원히 거부된 경우, 권한 설정 페이지로 이동합니다.
-        bool isOpened = await openAppSettings();
-        if (!isOpened) {
-          return Future.error('권한 설정 페이지를 열 수 없습니다.');
-        }
-        return Future.error('위치 권한이 영구적으로 거부되었습니다. 권한을 변경해주세요.');
-      }
-
-      // 여기까지 왔다면 권한이 허용되었고 디바이스의 위치에 접근할 수 있습니다.
       return await Geolocator.getCurrentPosition();
-    } else {
-      // whileInUse 권한이 없는 경우, 권한을 요청합니다.
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        // 권한이 거부된 경우, 모달 창으로 알림을 표시합니다.
-
-        return Future.error('위치 권한이 거부되었습니다.');
-      } else if (permission == LocationPermission.deniedForever) {
-        // 권한이 영원히 거부된 경우, 권한 설정 페이지로 이동합니다.
-        bool isOpened = await openAppSettings();
-        if (!isOpened) {
-          return Future.error('권한 설정 페이지를 열 수 없습니다.');
-        }
-        return Future.error('위치 권한이 영구적으로 거부되었습니다. 권한을 변경해주세요.');
-      }
     }
 
-    return Future.error('위치 권한을 확인할 수 없습니다.');
+    if (permission == LocationPermission.denied) {
+      // 권한이 거부된 경우, 모달 창으로 알림을 표시합니다.
+      return Future.error('위치 권한이 거부되었습니다. 임의의 5군데 무더위 대피소를 보여드립니다.');
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      // 권한이 영원히 거부된 경우, 권한 설정 페이지로 이동합니다.
+      return Future.error('위치 권한이 영구적으로 거부되었습니다. 임의의 5군데 무더위 대피소를 보여드립니다.');
+    }
+
+    // 여기까지 왔다면 권한이 허용되었고 디바이스의 위치에 접근할 수 있습니다.
+    return await Geolocator.getCurrentPosition();
   }
 
   @override

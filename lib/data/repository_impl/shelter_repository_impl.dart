@@ -30,4 +30,16 @@ class ShelterRepositoryImpl implements ShelterRepository {
 
     return shelters.take(5).toList();
   }
+
+  Future<List<Shelter>> fetchRandom() async {
+    String jsonString = await rootBundle.loadString('assets/shelter.json');
+    Map<String, dynamic> jsonData = json.decode(jsonString);
+    List<dynamic> jsonResult = jsonData['DATA'];
+
+    jsonResult.shuffle();
+
+    return jsonResult.take(5).map((e) {
+      return Shelter.fromJson(e);
+    }).toList();
+  }
 }
